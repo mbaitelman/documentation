@@ -12,7 +12,8 @@ private: true
 The features described on this page are in beta. Contact your Customer Success Manager to learn more about them.
 </div>
 
-This guide assumes that you have configured [Database Monitoring][1] and are using [APM][2].
+This guide assumes that you have configured [Database Monitoring][1] and are using [APM][2]. Connecting APM and DBM will inject APM trace identifiers into DBM data collection, which allows for correlation of these two data sources. This enables product features showing database information in the APM product, and APM data in the DBM product.  
+
 
 ## Before you begin
 
@@ -24,6 +25,12 @@ Supported Agent versions
 
 Data privacy
 : Enabling SQL comment propagation results in potentially confidential data (service names) being stored in the databases which can then be accessed by other third-parties that have been granted access to the database.
+
+For the best user experience ensure the following environment variables are set in your application:
+:   - `DD_SERVICE=(application name)`
+:   - `DD_ENV=(application environment)`
+:   - `DD_VERSION=(application version)`
+
 
 
 **Supported tracers**
@@ -181,11 +188,6 @@ pip install psycopg2
 
 Enable the database monitoring propagation feature by setting the following environment variable:
    - `DD_DBM_PROPAGATION_MODE=full`
-
-For the best user experience ensure the following environment variables are set in your application:
-   - `DD_SERVICE=(application name)`
-   - `DD_ENV=(application environment)`
-   - `DD_VERSION=(application version)`
 
 Full example:
 ```python
