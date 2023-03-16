@@ -17,19 +17,21 @@ This guide assumes that you have configured [Database Monitoring][1] and are usi
 
 ## Before you begin
 
-Supported databases
-: postgres, mysql
+<dl>
+	<dt>Supported databases</dt>
+	<dd>postgres, mysql</dd>
 
-Supported Agent versions
-: 7.36.1+
+	<dt>Supported Agent versions</dt>
+	<dd>7.36.1+</dd>
 
-Data privacy
-: Enabling SQL comment propagation results in potentially confidential data (service names) being stored in the databases which can then be accessed by other third-parties that have been granted access to the database.
+	<dt>Data privacy</dt>
+	<dd>Enabling SQL comment propagation results in potentially confidential data (service names) being stored in the databases which can then be accessed by other third-parties that have been granted access to the database.</dd>
 
-For the best user experience ensure the following environment variables are set in your application:
-:   - `DD_SERVICE=(application name)`
-:   - `DD_ENV=(application environment)`
-:   - `DD_VERSION=(application version)`
+	<dt>For the best user experience ensure the following environment variables are set in your application:</dt>
+	<dd>`DD_SERVICE=(application name)`</dd>
+	<dd>`DD_ENV=(application environment)`</dd>
+	<dd>`DD_VERSION=(application version)`</dd>
+</dl>
 
 
 
